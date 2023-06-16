@@ -8,7 +8,6 @@ function data() {
       .then(([data]) => {
         const { name, coatOfArms, flags, capital } = data;
         const output = `${JSON.stringify(name)}, ${JSON.stringify(coatOfArms)}, ${JSON.stringify(flags)}, ${capital}`;
-        document.write(output);
   
         getData(data);
       });
@@ -21,20 +20,21 @@ function data() {
     countryElement.className = 'country';
   
     const nameElement = document.createElement('p');
-    nameElement.textContent = name;
+    nameElement.textContent = name.common;
+
+    const capitalElement = document.createElement('p');
+    capitalElement.textContent = capital;
   
     const coatOfArmsElement = document.createElement('img');
     coatOfArmsElement.src = coatOfArms.png;
   
-    const capitalElement = document.createElement('p');
-    capitalElement.textContent = capital;
   
     const flagElement = document.createElement('img');
     flagElement.src = flags.png;
   
     countryElement.appendChild(nameElement);
-    countryElement.appendChild(coatOfArmsElement);
     countryElement.appendChild(capitalElement);
+    countryElement.appendChild(coatOfArmsElement);
     countryElement.appendChild(flagElement);
   
     document.body.appendChild(countryElement);
